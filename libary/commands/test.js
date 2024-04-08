@@ -1,14 +1,17 @@
-const send_webhook = require("../discord/send_webhook").main
+const send_message = require("../discord/send_message").main
 
 exports.main = function(data, args) {
-    const {author} = data
+    const {channel_id} = data
 
-    send_webhook({
-        "title": "Test",
+    send_message({
+        "channel_id": channel_id,
+        "content": 
+`
+${"```diff"}
+! [System] - test
 
-        "fields": [{
-            "name": `haii ${author.global_name}!! :3`,
-            "value": JSON.stringify(args)
-        }]
+huh :3
+${"```"}
+`
     })
 }
