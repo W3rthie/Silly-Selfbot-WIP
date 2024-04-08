@@ -35,9 +35,9 @@ exports.main = function(data) {
             if (file_system.existsSync(`./libary/commands/${command}.js`)) {
                 require(`../commands/${command}.js`).main(stored_data, split_string)
             }
-        }
 
-        return
+            return
+        }
     }
 
     exports.saved_messages[id] = stored_data
