@@ -1,0 +1,16 @@
+{
+  "name": "silly-selfbot",
+  "version": "1.0.0",
+  "description": "discord selfbot :3",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "https://github.com/W3rthie",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ws": "^8.16.0"
+  }
+}
