@@ -1,6 +1,5 @@
 {
     "prefix": "-",
     "command_access": [],
-    "discord_webhook": "",
-    "log_channel":  ""
+    "log_webhook": ""
 }

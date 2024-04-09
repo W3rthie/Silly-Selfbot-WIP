@@ -16,4 +16,6 @@ exports.main = function(data) {
     
         body: JSON.stringify({"content": content})
     })
+
+    .catch(error => console.log(error))
 }

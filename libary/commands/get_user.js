@@ -10,14 +10,21 @@ exports.main = async function(data, args) {
 
     const response = await fetch(url, {
         method: "GET",
-        headers: {
-            "Authorization": discord_token
-        }
+        headers: {"Authorization": discord_token}
     })
+
+    .catch(error => console.log(error))
 
     if (response.ok) {
         const response_data = await response.json()
-        const {user} = response_data
+        const {user, badges} = response_data
+        const badge_content = []
+
+        for (let index in badges) {
+            const badge = badges[index]
+
+            badge_content[index] = badge.description
+        }
 
         send_message({
             "channel_id": channel_id,
@@ -30,9 +37,14 @@ Display Name: ${user.global_name}
 Username: ${user.username}
 ID: ${user.id}
 
+// Badges:
+${JSON.stringify(badge_content)}
+
 // Bio:
 ${user.bio}
 ${"```"}
+[- Avatar -](https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.webp?size=128)
+[- Banner -](https://cdn.discordapp.com/banners/${user.id}/${user.banner}.png?size=600)
 `
         })
     }

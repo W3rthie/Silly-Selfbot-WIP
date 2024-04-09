@@ -1,24 +1,23 @@
 const config = require("../../config.json")
 
-const {discord_webhook} = config
+const {log_webhook} = config
 
 exports.main = function(data) {
     const {title, fields} = data
 
-    fetch(discord_webhook, {
+    fetch(log_webhook, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
 
         body: JSON.stringify({
             embeds: [{
                 title: title,
-                description: "/ - / - / - / - / - / - / - / - / - / - /",
-                fields: fields
+                description: "/ - / - / - / - / - / - / - / - / - / - / - / - / - /",
+                fields: fields,
+                color: 16559103
             }]
         })
     })
 
-    .catch(function(error) {
-        console.log(error)
-    })
+    .catch(error => console.log(error))
 }
